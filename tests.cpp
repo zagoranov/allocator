@@ -1,5 +1,7 @@
 #include "alloc.h"
 #include <gtest/gtest.h>
+#include <memory>
+
 
 class tests : public ::testing::Test {
 public:
