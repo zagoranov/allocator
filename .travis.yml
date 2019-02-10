@@ -1,4 +1,5 @@
 language: cpp
+compiler: g++
 before_script:
 - sudo apt-get install cmake libgtest-dev
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
