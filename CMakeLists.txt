@@ -9,11 +9,11 @@ else()
 endif()
 
 # Setup testing
-enable_testing()
-find_package(GTest REQUIRED)
-set(GTEST_ROOT "/usr/src/gtest" CACHE PATH "Path to googletest")
-include_directories(${GTEST_INCLUDE_DIRS})
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+# enable_testing()
+# find_package(GTest REQUIRED)
+# set(GTEST_ROOT "/usr/src/gtest" CACHE PATH "Path to googletest")
+# include_directories(${GTEST_INCLUDE_DIRS})
+# include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 configure_file(version.h.in version.h)
 
@@ -49,5 +49,5 @@ set(CPACK_PACKAGE_CONTACT r.muzyukin@gmail.com)
 include(CPack)
 
 #GTest
-add_executable(runTests tests.cpp)
-target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
+# add_executable(runTests tests.cpp)
+# target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
