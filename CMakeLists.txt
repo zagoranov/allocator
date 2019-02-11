@@ -34,7 +34,7 @@ target_link_libraries(allocator_cli
     allocator
 )
 
-install(TARGETS allocator_cli RUNTIME DESTINATION bin)
+#install(TARGETS allocator_cli RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
