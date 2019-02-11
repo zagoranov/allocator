@@ -19,9 +19,10 @@ TEST_F(tests, CheckRightStart) {
     ASSERT_EQ(v3->firstElem, v3->currElem);
 }
 
-TEST_F(tests, ChaeckRightAdd) {
+TEST_F(tests, CheckRightAdd) {
     auto v3 = std::make_unique < MyContainer<logging_allocator<MyStruct>>>();
     v3->Add(0);
+    v3->Add(1);
     ASSERT_NE(v3->firstElem, v3->currElem);
 }
 

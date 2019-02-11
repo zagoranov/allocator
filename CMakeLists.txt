@@ -9,11 +9,11 @@ else()
 endif()
 
 # Setup testing
-#enable_testing()
-#find_package(GTest REQUIRED)
-#set(GTEST_ROOT "/usr/src/gtest" CACHE PATH "Path to googletest")
-#include_directories(${GTEST_INCLUDE_DIRS})
-#include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+enable_testing()
+find_package(GTest REQUIRED)
+set(GTEST_ROOT "/usr/src/gtest" CACHE PATH "Path to googletest")
+include_directories(${GTEST_INCLUDE_DIRS})
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 configure_file(version.h.in version.h)
 
@@ -34,7 +34,9 @@ target_link_libraries(allocator_cli
     allocator
 )
 
-#install(TARGETS allocator_cli RUNTIME DESTINATION bin)
+target_compile_features(allocator_cli PRIVATE cxx_std_14)
+
+install(TARGETS allocator_cli RUNTIME DESTINATION ${PROJECT_BINARY_DIR})
 
 set(CPACK_GENERATOR DEB)
 
@@ -46,13 +48,6 @@ set(CPACK_PACKAGE_CONTACT r.muzyukin@gmail.com)
 
 include(CPack)
 
-
-# Add test cpp file
-# add_executable(runUnitTests tests.cpp)
-# Link test executable against gtest & gtest_main
-# target_link_libraries(runUnitTests gtest gtest_main)
-
-#add_test(
-#    NAME runUnitTests
-#    COMMAND runUnitTests
-#)
+#GTest
+add_executable(runTests tests.cpp)
+target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)

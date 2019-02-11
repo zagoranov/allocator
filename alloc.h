@@ -69,7 +69,7 @@ struct logging_allocator {
 			std::cout << "construct " << p << std::endl;
 			new(p) U(std::forward<Args>(args)...);
 			pCurElement = (T*)p;
-    };
+    }
 
 	void destroy(T *p) {
 		std::cout << "destroing " << p;
