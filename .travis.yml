@@ -14,3 +14,4 @@ deploy:
   skip_cleanup: true
   script:
   - curl -T allocator-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uromanmuz:$BINTRAY_API_KEY https://api.bintray.com/content/romanmuz/task1/allocator/$TRAVIS_BUILD_NUMBER/allocator-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb
+ 
