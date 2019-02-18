@@ -5,7 +5,7 @@
 
 
 template<typename T>
-struct logging_allocator {
+struct tenobj_allocator {
 	using value_type = T;
     using pointer = T*;
     using const_pointer = const T*;
@@ -21,14 +21,14 @@ struct logging_allocator {
 
     template<typename U>
     struct rebind {
-        using other = logging_allocator<U>;
+        using other = tenobj_allocator<U>;
     };
 
-    logging_allocator() = default;
-    ~logging_allocator() = default;
+    tenobj_allocator() = default;
+    ~tenobj_allocator() = default;
 
     template<typename U>
-     logging_allocator(const logging_allocator<U>&)  {
+     tenobj_allocator(const tenobj_allocator<U>&)  {
     }
 
     T *allocate(std::size_t n) {

@@ -12,7 +12,7 @@ int main(int, char *[]) {
 		m1[i] = (int)fact(i);
 	}
 
-	auto m2 = std::map<int, int, std::less<int>, logging_allocator<std::pair<const int, int>> >{};
+	auto m2 = std::map<int, int, std::less<int>, tenobj_allocator<std::pair<const int, int>> >{};
      for (int i = 0; i < 10; ++i) {
          m2[i] = (int)fact(i);
      }
@@ -20,8 +20,8 @@ int main(int, char *[]) {
 		 std::cout << mm.first << " " << mm.second << std::endl;
 	 }
 	 
-	 //auto v3 = std::make_unique < MyContainer<logging_allocator<MyStruct>>>();  //Travis не хочет make_unique
-	 auto v3 = new MyContainer<logging_allocator<MyStruct>>();
+	 //auto v3 = std::make_unique < MyContainer<tenobj_allocator<MyStruct>>>();  //Travis не хочет make_unique
+	 auto v3 = new MyContainer<tenobj_allocator<MyStruct>>();
 	 for (int i = 0; i < 10; ++i) {
 		 v3->Add(i);
 	 }
